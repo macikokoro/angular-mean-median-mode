@@ -1,7 +1,8 @@
 # Mean Median Mode angular calculator
 ----------------------------------------
 ## Usage
-- Clone repo
+Clone repo
+
 ```npm install```
 
 ```bower install```
