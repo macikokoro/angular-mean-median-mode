@@ -5,9 +5,9 @@
   <title>Gem Store CodeSchool</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   </head>
-  <body class="container" ng-controller="StoreController as store">
+  <body ng-controller="StoreController as store">
 
-    <div class="product row">
+    <div class="list-group">
     <h1>{{store.product.name}}</h1>
     <h2>{{store.product.price | currency}}</h2>
     <p>{{store.product.description}}</p>
@@ -38,7 +38,26 @@
          {{review.body}}
          <cite>by: {{review.author}}</cite>
        </blockquote>
+       <form name="reviewForm" ng-controller="ReviewController as reviewCtrl"
+       ng-submit="reviewForm.$valid && reviewCtrl.addReview(store.product)" novalidate>
+         <!-- Live Preview -->
+         <blockquote>
+           <b> {{reviewCtrl.review.stars}} Stars</b>
+           {{reviewCtrl.review.body}}
+           <cite class="clearfix"> {{reviewCtrl.review.author}}</cite>
+         </blockquote>
 
+         <!-- Review Form -->
+         <h4>Submit a Review</h4>
+         <select ng-model="reviewCtrl.review.stars" class="form-control" ng-options="stars for stars in [5, 4, 3, 2, 1]" title="Stars" required>
+         <option value="">Review us!</option>
+         </select>
+         <textarea name="body" ng-model="reviewCtrl.review.body" class="form-control" required></textarea>
+         <label>by:</label>
+         <input name="author" ng-model="reviewCtrl.review.author" type="email" class="form-control" placeholder="jimiHendrix@intheclouds.com" required>
+         <div> reviewForm is {{reviewForm.$valid}}</div>
+         <input type="submit" class="btn btn-primary pull-right" value="Submit">
+       </form>
 
   </section>
 
