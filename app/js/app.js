@@ -19,6 +19,12 @@
   var gems = {
     name: 'BlueRock',
     price: 2.95,
-    description: 'A blue rock'
+    description: 'A blue rock',
+    reviews: [
+    {
+      stars: 5,
+      body: "I love this site!",
+      author: "bob@typicaljoe.com"
+    }]
   };
 })();
